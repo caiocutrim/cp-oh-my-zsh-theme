@@ -126,7 +126,7 @@ prompt_git() {
       fgclr='252'
     else
       clean=' ✔'
-      bgclr='green'
+      bgclr='154'
       fgclr='252'
     fi
 
