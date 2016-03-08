@@ -127,7 +127,7 @@ prompt_git() {
     else
       clean=' ✔'
       bgclr='154'
-      fgclr='255'
+      fgclr='232' # dark-gray
     fi
 
     local upstream=$(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} 2> /dev/null)
