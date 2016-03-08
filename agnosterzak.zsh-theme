@@ -1,36 +1,7 @@
 # vim:ft=zsh ts=2 sw=2 sts=2
-#
-# agnoster's Theme - https://gist.github.com/3712874
-# A Powerline-inspired theme for ZSH
-#
-# # README
-#
-# In order for this theme to render correctly, you will need a
-# [Powerline-patched font](https://github.com/Lokaltog/powerline-fonts).
-# Make sure you have a recent version: the code points that Powerline
-# uses changed in 2012, and older versions will display incorrectly,
-# in confusing ways.
-#
-# In addition, I recommend the
-# [Solarized theme](https://github.com/altercation/solarized/) and, if you're
-# using it on Mac OS X, [iTerm 2](http://www.iterm2.com/) over Terminal.app -
-# it has significantly better color fidelity.
-#
-# # Goals
-#
-# The aim of this theme is to only show you *relevant* information. Like most
-# prompts, it will only show git information when in a git working directory.
-# However, it goes a step further: everything from the current user and
-# hostname to whether the last call exited with an error to whether background
-# jobs are running in this shell will all be displayed automatically when
-# appropriate.
-
-### Segment drawing
-# A few utility functions to make it easy and re-usable to draw segmented prompts
 
 CURRENT_BG='NONE'
 
-# Special Powerline characters
 
 () {
   local LC_ALL="" LC_CTYPE="en_US.UTF-8"
@@ -79,9 +50,9 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ -n "$SSH_CLIENT" ]]; then
-    prompt_segment magenta white "$fg_bold[white]%(!.%{%F{white}%}.)$USER@%m$fg_no_bold[white]"
+    prompt_segment white black "$fg_bold[black]%(!.%{%F{black}%}.)$USER@%m$fg_no_bold[white]"
   else
-    prompt_segment yellow magenta "$fg_bold[magenta]%(!.%{%F{magenta}%}.)@$USER$fg_no_bold[magenta]"
+    prompt_segment white black "$fg_bold[black]%(!.%{%F{black}%}.)  $USER$fg_no_bold[black]"
   fi
 }
 
@@ -118,13 +89,13 @@ prompt_battery() {
     b=$(battery_pct_remaining)
     if [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]] ; then
       if [ $b -gt 40 ] ; then
-        prompt_segment green white
+        prompt_segment green black
       elif [ $b -gt 20 ] ; then
-        prompt_segment yellow white
+        prompt_segment yellow black
       else
-        prompt_segment red white
+        prompt_segment red black
       fi
-      echo -n "$fg_bold[white]$HEART$(battery_pct_remaining)%%$fg_no_bold[white]"
+      echo -n "$fg_bold[black]$HEART$(battery_pct_remaining)%%$fg_no_bold[black]"
     fi
 
   fi
@@ -156,7 +127,7 @@ prompt_git() {
     else
       clean=' ✔'
       bgclr='green'
-      fgclr='white'
+      fgclr='black'
     fi
 
     local upstream=$(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} 2> /dev/null)
@@ -175,7 +146,7 @@ prompt_git() {
     if [[ $number_modified -gt 0 ]]; then
       modified=" $number_modified●"
       bgclr='red'
-      fgclr='white'
+      fgclr='black'
     fi
 
     local number_added_modified=$(\grep -c "^M" <<< "${git_status}")
@@ -190,7 +161,7 @@ prompt_git() {
     if [[ $number_deleted -gt 0 ]]; then
       deleted=" $number_deleted‒"
       bgclr='red'
-      fgclr='white'
+      fgclr='black'
     fi
 
     local number_added_deleted=$(\grep -c "^D" <<< "${git_status}")
@@ -207,7 +178,7 @@ prompt_git() {
     if [[ $number_of_stashes -gt 0 ]]; then
       stashed=" $number_of_stashes⚙"
       bgclr='magenta'
-      fgclr='white'
+      fgclr='black'
     fi
 
     if [[ $number_added -gt 0 || $number_added_modified -gt 0 || $number_added_deleted -gt 0 ]]; then ready_commit=' ⚑'; fi
@@ -225,7 +196,7 @@ prompt_git() {
     if [[ $commits_ahead -gt 0 && $commits_behind -gt 0 ]]; then has_diverged=true; fi
     if [[ $has_diverged == false && $commits_ahead -gt 0 ]]; then
       if [[ $bgclr == 'red' || $bgclr == 'magenta' ]] then
-        to_push=" $fg_bold[white]↑$commits_ahead$fg_bold[$fgclr]"
+        to_push=" $fg_bold[black]↑$commits_ahead$fg_bold[$fgclr]"
       else
         to_push=" $fg_bold[black]↑$commits_ahead$fg_bold[$fgclr]"
       fi
@@ -252,7 +223,7 @@ prompt_hg() {
     if $(hg prompt >/dev/null 2>&1); then
       if [[ $(hg prompt "{status|unknown}") = "?" ]]; then
         # if files are not added
-        prompt_segment red white
+        prompt_segment red black
         st='±'
       elif [[ -n $(hg prompt "{status|modified}") ]]; then
         # if any modification
@@ -283,7 +254,7 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment cyan white "$fg_bold[white]%~$fg_no_bold[white]"
+  prompt_segment white black "$fg_bold[black]%~$fg_no_bold[black]"
 }
 
 # Virtualenv: current working virtualenv
@@ -295,7 +266,7 @@ prompt_virtualenv() {
 }
 
 prompt_time() {
-  prompt_segment blue white "$fg_bold[white]%D{%a %e %b - %H:%M}$fg_no_bold[white]"
+  prompt_segment red black "$fg_bold[white]%D{%a %e %b - %H:%M}$fg_no_bold[white]"
 }
 
 # Status:
