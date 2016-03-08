@@ -50,9 +50,9 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ -n "$SSH_CLIENT" ]]; then
-    prompt_segment white black "$fg_bold[black]%(!.%{%F{black}%}.)$USER@%m$fg_no_bold[white]"
+    prompt_segment 234 252 "$fg_bold[252]%(!.%{%F{252}%}.)  $USER@%m$fg_no_bold[252]"
   else
-    prompt_segment white black "$fg_bold[black]%(!.%{%F{black}%}.)  $USER$fg_no_bold[black]"
+    prompt_segment 234 252 "$fg_bold[252]%(!.%{%F{252}%}.)  $USER$fg_no_bold[252]"
   fi
 }
 
@@ -89,13 +89,13 @@ prompt_battery() {
     b=$(battery_pct_remaining)
     if [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]] ; then
       if [ $b -gt 40 ] ; then
-        prompt_segment green black
+        prompt_segment green 232
       elif [ $b -gt 20 ] ; then
-        prompt_segment yellow black
+        prompt_segment 226 232
       else
-        prompt_segment red black
+        prompt_segment 197 232
       fi
-      echo -n "$fg_bold[black]$HEART$(battery_pct_remaining)%%$fg_no_bold[black]"
+      echo -n "$fg_bold[232]$HEART$(battery_pct_remaining)%%$fg_no_bold[black]"
     fi
 
   fi
@@ -122,12 +122,12 @@ prompt_git() {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || ref="➦ $(git rev-parse --short HEAD 2> /dev/null)"
     if [[ -n $dirty ]]; then
       clean=''
-      bgclr='yellow'
-      fgclr='magenta'
+      bgclr='197'
+      fgclr='252'
     else
       clean=' ✔'
       bgclr='green'
-      fgclr='black'
+      fgclr='252'
     fi
 
     local upstream=$(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} 2> /dev/null)
@@ -136,7 +136,7 @@ prompt_git() {
     local current_commit_hash=$(git rev-parse HEAD 2> /dev/null)
 
     local number_of_untracked_files=$(\grep -c "^??" <<< "${git_status}")
-    # if [[ $number_of_untracked_files -gt 0 ]]; then untracked=" $number_of_untracked_files◆"; fi
+
     if [[ $number_of_untracked_files -gt 0 ]]; then untracked=" $number_of_untracked_files☀"; fi
 
     local number_added=$(\grep -c "^A" <<< "${git_status}")
@@ -144,9 +144,9 @@ prompt_git() {
 
     local number_modified=$(\grep -c "^.M" <<< "${git_status}")
     if [[ $number_modified -gt 0 ]]; then
-      modified=" $number_modified●"
-      bgclr='red'
-      fgclr='black'
+      modified=" $number_modified "
+      bgclr='226'
+      fgclr='232'
     fi
 
     local number_added_modified=$(\grep -c "^M" <<< "${git_status}")
@@ -154,14 +154,14 @@ prompt_git() {
     if [[ $number_modified -gt 0 && $number_added_modified -gt 0 ]]; then
       modified="$modified$((number_added_modified+number_added_renamed))±"
     elif [[ $number_added_modified -gt 0 ]]; then
-      modified=" ●$((number_added_modified+number_added_renamed))±"
+      modified="  $((number_added_modified+number_added_renamed))±"
     fi
 
     local number_deleted=$(\grep -c "^.D" <<< "${git_status}")
     if [[ $number_deleted -gt 0 ]]; then
       deleted=" $number_deleted‒"
-      bgclr='red'
-      fgclr='black'
+      bgclr='208' # 197
+      fgclr='232' # dark-grey
     fi
 
     local number_added_deleted=$(\grep -c "^D" <<< "${git_status}")
@@ -177,8 +177,8 @@ prompt_git() {
     local number_of_stashes="$(git stash list -n1 2> /dev/null | wc -l)"
     if [[ $number_of_stashes -gt 0 ]]; then
       stashed=" $number_of_stashes⚙"
-      bgclr='magenta'
-      fgclr='black'
+      bgclr='206' # good-206
+      fgclr='252' # good-252-color-spectrum
     fi
 
     if [[ $number_added -gt 0 || $number_added_modified -gt 0 || $number_added_deleted -gt 0 ]]; then ready_commit=' ⚑'; fi
@@ -195,13 +195,13 @@ prompt_git() {
     has_diverged=false
     if [[ $commits_ahead -gt 0 && $commits_behind -gt 0 ]]; then has_diverged=true; fi
     if [[ $has_diverged == false && $commits_ahead -gt 0 ]]; then
-      if [[ $bgclr == 'red' || $bgclr == 'magenta' ]] then
-        to_push=" $fg_bold[black]↑$commits_ahead$fg_bold[$fgclr]"
+      if [[ $bgclr == '197' || $bgclr == '206' ]] then
+        to_push=" $fg_bold[232]↑$commits_ahead$fg_bold[$fgclr]"
       else
-        to_push=" $fg_bold[black]↑$commits_ahead$fg_bold[$fgclr]"
+        to_push=" $fg_bold[232]↑$commits_ahead$fg_bold[$fgclr]"
       fi
     fi
-    if [[ $has_diverged == false && $commits_behind -gt 0 ]]; then to_pull=" $fg_bold[magenta]↓$commits_behind$fg_bold[$fgclr]"; fi
+    if [[ $has_diverged == false && $commits_behind -gt 0 ]]; then to_pull=" $fg_bold[206]↓$commits_behind$fg_bold[$fgclr]"; fi
 
     if [[ -e "${repo_path}/BISECT_LOG" ]]; then
       mode=" <B>"
@@ -223,15 +223,15 @@ prompt_hg() {
     if $(hg prompt >/dev/null 2>&1); then
       if [[ $(hg prompt "{status|unknown}") = "?" ]]; then
         # if files are not added
-        prompt_segment red black
+        prompt_segment 197 232
         st='±'
       elif [[ -n $(hg prompt "{status|modified}") ]]; then
         # if any modification
-        prompt_segment yellow black
+        prompt_segment 226 197
         st='±'
       else
         # if working copy is clean
-        prompt_segment green black
+        prompt_segment green 232
       fi
       echo -n $(hg prompt "☿ {rev}@{branch}") $st
     else
@@ -239,13 +239,13 @@ prompt_hg() {
       rev=$(hg id -n 2>/dev/null | sed 's/[^-0-9]//g')
       branch=$(hg id -b 2>/dev/null)
       if `hg st | grep -q "^\?"`; then
-        prompt_segment red black
+        prompt_segment 197 232
         st='±'
       elif `hg st | grep -q "^[MA]"`; then
-        prompt_segment yellow black
+        prompt_segment 226 232
         st='±'
       else
-        prompt_segment green black
+        prompt_segment green 232
       fi
       echo -n "☿ $rev@$branch" $st
     fi
@@ -254,19 +254,20 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment white black "$fg_bold[black]%~$fg_no_bold[black]"
+  prompt_segment 255 238 "$fg_bold[238] %~%$fg_no_bold[238]"
 }
 
 # Virtualenv: current working virtualenv
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
   if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment blue black "(`basename $virtualenv_path`)"
+    prompt_segment blue 232 "(`basename $virtualenv_path`)"
   fi
 }
 
 prompt_time() {
-  prompt_segment red black "$fg_bold[white]%D{%a %e %b - %H:%M}$fg_no_bold[white]"
+  # 197 = 197
+  prompt_segment 197 252 "$fg_bold[white]  %D{%a %e %b %H:%M} $fg_no_bold[white]"
 }
 
 # Status:
@@ -276,11 +277,11 @@ prompt_time() {
 prompt_status() {
   local symbols
   symbols=()
-  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{red}%}✘"
-  [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
-  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
+  [[ $RETVAL -ne 0 ]] && symbols+="%{%F{197}%}✘"
+  [[ $UID -eq 0 ]] && symbols+="%{%F{226}%}⚡"
+  [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{252}%}⚙"
 
-  [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
+  [[ -n "$symbols" ]] && prompt_segment 232 default "$symbols"
 }
 
 ## Main prompt
