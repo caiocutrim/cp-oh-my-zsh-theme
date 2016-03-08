@@ -123,11 +123,11 @@ prompt_git() {
     if [[ -n $dirty ]]; then
       clean=''
       bgclr='197'
-      fgclr='252'
+      fgclr='255'
     else
       clean=' ✔'
       bgclr='154'
-      fgclr='252'
+      fgclr='255'
     fi
 
     local upstream=$(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} 2> /dev/null)
