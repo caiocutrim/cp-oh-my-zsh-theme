@@ -1,6 +1,6 @@
 # CP(Agnoster based) for oh-my-zsh
 CP is a [oh-my-zsh shell](https://github.com/robbyrussell/oh-my-zsh) theme based on the
-[Powerline Vim plugin](https://github.com/Lokaltog/vim-powerline) agnosterzak-theme &
+[Powerline Vim plugin](https://github.com/Lokaltog/vim-powerline) vim-powerline, agnosterzak-theme &
 [Agnoster Theme](https://gist.github.com/agnoster/3712874).
 
 
