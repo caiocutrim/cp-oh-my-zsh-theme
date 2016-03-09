@@ -11,12 +11,6 @@ It currently shows:
 - Git status
 - User & Host status
 
-## Preview
-
-![Preview](images/agnosterzak-01.png)
-
-
-
 ## Requirements
 
 In order to use the theme, you will first need:
@@ -31,9 +25,9 @@ In order to use the theme, you will first need:
 
 After installing [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
-1. Download the theme [here](http://raw.github.com/caiocutrim/cp-ohmyzsh-theme/master/cp.zsh-theme)
+1. Download the theme [here](http://raw.github.com/caiocutrim/cp-oh-my-zsh-theme/master/cp.zsh-theme)
 
-2. Put the file **agnosterzak.zsh-theme** in **$ZSH_CUSTOM/themes/**
+2. Put the file **cp.zsh-theme** in **$ZSH_CUSTOM/themes/**
 
 3. Configure the theme in your **~/.zshrc** file:
 
@@ -53,8 +47,8 @@ or don't want to see. All options must be overridden in your **.zshrc** file.
 
 ## Some screenshots
 
-[screenshot1](images/screenshot1.png)
-[screenshot2](images/screenshot2.png)
+![screenshot1](images/screenshot1.png)
+![screenshot2](images/screenshot2.png)
 
 This theme is highly inspired by the following themes:
 - [Powerline](https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme)
