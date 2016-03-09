@@ -27,7 +27,7 @@ After installing [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
 1. Download the theme [here](http://raw.github.com/caiocutrim/cp-ohmyzsh-theme/master/cp.zsh-theme)
 
-2. Put the file **agnosterzak.zsh-theme** in **$ZSH_CUSTOM/themes/**
+2. Put the file **cp.zsh-theme** in **$ZSH_CUSTOM/themes/**
 
 3. Configure the theme in your **~/.zshrc** file:
 
