@@ -13,7 +13,7 @@ It currently shows:
 
 ## Preview
 
-![Preview](images/agnosterzak-01.png)
+![Preview](./images/agnosterzak-01.png)
 
 
 
