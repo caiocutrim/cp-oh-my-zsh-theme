@@ -19,7 +19,7 @@ CURRENT_BG='NONE'
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
-# rendering default background/foreground.
+# rendering default background/foreground. It's a nice function, trust me :)
 prompt_segment() {
   local bg fg
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
