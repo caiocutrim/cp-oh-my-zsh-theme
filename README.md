@@ -37,6 +37,9 @@ After installing [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
 3. Configure the theme in your **~/.zshrc** file:
 
+4. You can use the makefile to automatic install the theme on your .oh-my-zsh directory installation
+
+
 ```bash
 ZSH_THEME="cp"
 ```
