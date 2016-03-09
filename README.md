@@ -17,6 +17,10 @@ In order to use the theme, you will first need:
 
 * Powerline compatible fonts like [Vim Powerline patched fonts](https://github.com/Lokaltog/powerline-fonts), [Input Mono](http://input.fontbureau.com/) or [Monoid](http://larsenwork.com/monoid/).
 * On Ubuntu like systems you'll need the `ttf-ancient-fonts` package to correctly display some unicode symbols that are not covered by the Powerline fonts above.
+* You need to configure your ~/.zshrc file with this script if you use Ubuntu
+``` bash
+export TERM="xterm-256color" # to enaable all color used in this theme.
+```
 * A ZSH framework like [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * Awesome-terminal fonts [awesome-terminal-fonts](https://github.com/gabrielelana/awesome-terminal-fonts)
 
