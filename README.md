@@ -25,7 +25,7 @@ In order to use the theme, you will first need:
 
 After installing [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
-1. Download the theme [here](http://raw.github.com/caiocutrim/cp-ohmyzsh-theme/master/cp.zsh-theme)
+1. Download the theme [here](http://raw.github.com/caiocutrim/cp-oh-my-zsh-theme/master/cp.zsh-theme)
 
 2. Put the file **cp.zsh-theme** in **$ZSH_CUSTOM/themes/**
 
