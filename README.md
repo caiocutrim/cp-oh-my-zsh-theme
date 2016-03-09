@@ -19,7 +19,7 @@ In order to use the theme, you will first need:
 * On Ubuntu like systems you'll need the `ttf-ancient-fonts` package to correctly display some unicode symbols that are not covered by the Powerline fonts above.
 * You need to configure your ~/.zshrc file with this script if you use Ubuntu
 ``` bash
-export TERM="xterm-256color" # to enaable all color used in this theme.
+export TERM="xterm-256color" # to enaable all colors used in this theme.
 ```
 * A ZSH framework like [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * Awesome-terminal fonts [awesome-terminal-fonts](https://github.com/gabrielelana/awesome-terminal-fonts)
@@ -46,8 +46,6 @@ ZSH_THEME="cp"
 
 CP is configurable. You can change colors and which segments you want
 or don't want to see. All options must be overridden in your **.zshrc** file.
-
-## Segments
 
 ## Some screenshots
 
