@@ -41,7 +41,7 @@ After installing [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 5. And finally configure the theme in your **~/.zshrc** file:
 
 ```bash
-ZSH_THEME="cp"
+ZSH_THEME="cp" # don't forget to run this command on your terminal source ~/.zshrc to update the changes
 ```
 
 ## Options
