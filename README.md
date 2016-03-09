@@ -36,7 +36,7 @@ After installing [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
 3. You can use the makefile to automatic install the theme on your .oh-my-zsh directory installation
 
-4. If you use gnome-terminal you need to set the terminal font to DejaVu Sans Mono for Powerline and the width of this font is 12. 
+4. If you use gnome-terminal you need to set the terminal font to DejaVu Sans Mono for Powerline and the width of this font is 12.  You can easily do this in the terminal profile options menu on ubuntu.
 
 5. And finally configure the theme in your **~/.zshrc** file:
 
