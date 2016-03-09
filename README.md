@@ -11,12 +11,6 @@ It currently shows:
 - Git status
 - User & Host status
 
-## Preview
-
-![Preview](./images/agnosterzak-01.png)
-
-
-
 ## Requirements
 
 In order to use the theme, you will first need:
@@ -53,8 +47,8 @@ or don't want to see. All options must be overridden in your **.zshrc** file.
 
 ## Some screenshots
 
-[screenshot1](images/screenshot1.png)
-[screenshot2](images/screenshot2.png)
+![screenshot1](images/screenshot1.png)
+![screenshot2](images/screenshot2.png)
 
 This theme is highly inspired by the following themes:
 - [Powerline](https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme)
