@@ -23,6 +23,7 @@ export TERM="xterm-256color" # to enaable all color used in this theme.
 ```
 * A ZSH framework like [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 * Awesome-terminal fonts [awesome-terminal-fonts](https://github.com/gabrielelana/awesome-terminal-fonts)
+* Nerd-fonts [nerd-fonts](https://github.com/ryanoasis/nerd-fonts)
 
 
 ## Installing
