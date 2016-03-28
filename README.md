@@ -43,7 +43,7 @@ After installing [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 ```bash
 ZSH_THEME="cp" # don't forget to run this command on your terminal source ~/.zshrc to update the changes
 ```
-To installer the nerdfonts, just run this script 
+To install the nerdfonts, just run this script 
 ```bash
 mkdir -p ~/.local/share/fonts
 cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.otf
