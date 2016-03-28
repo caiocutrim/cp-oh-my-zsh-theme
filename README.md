@@ -36,14 +36,18 @@ After installing [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 
 3. You can use the makefile to automatic install the theme on your .oh-my-zsh directory installation
 
-4. If you use gnome-terminal you need to set the terminal font to DejaVu Sans Mono for Powerline and the width of this font is 12.  You can easily do this in the terminal profile options menu on ubuntu.
+4. If you use gnome-terminal you need to set the terminal font to DejaVu Sans Mono Nerd Font for Powerline and the width of this font is 12.  You can easily do this in the terminal profile options menu on ubuntu.
 
 5. And finally configure the theme in your **~/.zshrc** file:
 
 ```bash
 ZSH_THEME="cp" # don't forget to run this command on your terminal source ~/.zshrc to update the changes
 ```
-
+To installer the nerdfonts, just run this script 
+```bash
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts && curl -fLo "Droid Sans Mono for Powerline Nerd Font Complete.otf" https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20for%20Powerline%20Nerd%20Font%20Complete.otf
+```
 ## Options
 
 CP is configurable. You can change colors and which segments you want
