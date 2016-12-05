@@ -50,9 +50,9 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ -n "$SSH_CLIENT" ]]; then
-    prompt_segment 234 252 "$fg_bold[252]%(!.%{%F{252}%}.)  $USER@%m$fg_no_bold[252]"
+    prompt_segment 234 252 "$fg_bold[252]%(!.%{%F{252}%}.)  $USER@%m$fg_no_bold[252]"
   else
-    prompt_segment 234 252 "$fg_bold[252]%(!.%{%F{252}%}.)  $USER$fg_no_bold[252]"
+    prompt_segment 234 252 "$fg_bold[252]%(!.%{%F{252}%}.)  $USER$fg_no_bold[252]"
   fi
 }
 
