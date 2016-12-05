@@ -60,7 +60,8 @@ prompt_context() {
 prompt_battery() {
   HEART='♥ '
 
-  if [[ $(uname) == "Linux"  ]] ; then
+  if [[ $(uname) == "Linux" || $(uname) == "Darwin" ]] ; then
+
 
     function battery_is_charging() {
       ! [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]]
